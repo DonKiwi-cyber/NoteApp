@@ -13,8 +13,8 @@ const { Op } = require("sequelize")
 const createNoti = async (req, res) => {
     try{
         req = matchedData(req)
-        const {email} = req
-        const {email_addressee} = req
+        const email = req.email
+        const email_addressee = req.email_addressee
         const email_S = await userModel.findOne({ where:{ email: email }})
         const email_A = await userModel.findOne({ where:{ email: email_addressee }})
         if(!email_S){
