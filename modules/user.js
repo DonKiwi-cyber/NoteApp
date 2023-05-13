@@ -31,8 +31,9 @@ const user = sequelize.define(
 
 //user.hasMany(notification)
 
-updateUsers = async () => {
+const updateUsers = async () => {
     user.sync({ alter: true }) 
 }
+updateUsers;
 
 module.exports = user;

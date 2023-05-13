@@ -46,8 +46,9 @@ const notification = sequelize.define(
         timestamps: true,
     },
 );
-updateNotis = async () => {
+const updateNotis = async () => {
     notification.sync({ alter: true })
 }
+updateNotis
 
 module.exports = notification;
