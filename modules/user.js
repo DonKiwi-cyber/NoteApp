@@ -29,16 +29,11 @@ const user = sequelize.define(
     }
 );
 
-user.hasMany(note, {
-    foreignKey: 'email',
-})
-note.belongsTo(user)
+//user.hasMany(note)
 
-user.hasMany(notification, {
-    foreignKey: 'email',
-    foreignKey: 'email_adressee',
-})
-notification.belongsTo(user)
 
-notification.sync({ alter: true }) 
+//user.hasMany(notification)
+
+
+user.sync({ alter: true }) 
 module.exports = user;

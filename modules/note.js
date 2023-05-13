@@ -7,6 +7,10 @@ const note = sequelize.define(
         email: {
             type: DataTypes.STRING,
             allowNull: false,
+            references: {
+                model: 'users',
+                key: 'email'
+            }
         },
         title: {
             type: DataTypes.STRING,

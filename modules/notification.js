@@ -1,6 +1,5 @@
 const { sequelize } = require("../config/mysql")
 const { DataTypes } = require("sequelize");
-const user = require("./user");
 
 const notification = sequelize.define(
     "notification", 
@@ -8,10 +7,18 @@ const notification = sequelize.define(
         email: {
             type: DataTypes.STRING,
             allowNull: false,
+            references: {
+                model: 'users',
+                key: 'email'
+            },
         },
         email_addressee: {
             type: DataTypes.STRING,
             allowNull: false,
+            references: {
+                model: 'users',
+                key: 'email'
+            },
         },
         title: {
             type: DataTypes.STRING,
@@ -40,4 +47,5 @@ const notification = sequelize.define(
     },
 );
 
+notification.sync({ alter: true })
 module.exports = notification;
