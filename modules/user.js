@@ -1,7 +1,5 @@
 const { sequelize } = require("../config/mysql")
 const { DataTypes } = require("sequelize");
-const note = require("./note");
-const notification = require("./notification");
 
 const user = sequelize.define(
     "user",
@@ -31,9 +29,10 @@ const user = sequelize.define(
 
 //user.hasMany(note)
 
-
 //user.hasMany(notification)
 
+updateUsers = async () => {
+    user.sync({ alter: true }) 
+}
 
-user.sync({ alter: true }) 
 module.exports = user;

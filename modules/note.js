@@ -41,7 +41,9 @@ const note = sequelize.define(
     {
         timestamps: true,
     },
-);
+) ;
+updateNotes = async () => {
+    note.sync({ alter: true })
+}
 
-note.sync({ alter: true })
 module.exports = note;
