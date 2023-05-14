@@ -26,11 +26,12 @@ router.post("/publishNote", userSession, validatePublishNote, publishNote)
 router.get("/getNotes", userSession, getNotes)
 router.get("/getNotesByEmail", userSession, validateEmail, getNoteByEmail)
 router.put("/updateNote", userSession, validateUpdateNote, updateNote)
+router.delete("/deleteNote", userSession, validateReferenceNote, deleteNote)
+
 
 //TODOS Métodos de moderador
 router.get("/getWaitingNotes", userSession, checkRol, getWaitingNotes)
 router.put("/aproveNote", userSession, checkRol, validateReferenceNote, aproveNote)
-router.delete("/deleteNote", userSession, checkRol, validateReferenceNote, deleteNote)
 
 
 module.exports = router;
