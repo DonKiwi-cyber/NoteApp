@@ -15,6 +15,10 @@ const register = async (req, res) => {
         req = matchedData(req);
         const password = await encrypt(req.password)
         const body = {...req, password }
+        const findUser = await userModel.findOne({where:{email: req.email}})
+        if (findUser){
+            handleHttpError(res, "Este usuario ya existe")
+        }
         const userData = await userModel.create(body)
         //userData.set("password", undifined, {strict: false})
 

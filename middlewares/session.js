@@ -2,9 +2,17 @@ const { handleHttpError } = require("../utils/handleError");
 const { verifyToken } = require("../utils/handleJWT")
 const {userModel} = require("../modules")
 
+/**
+ * Valida si el query contiene el encabezado de Autorización, valida si el token es correcto y si pertenece al usuario
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ * @returns 
+ */
 const userSession = async (req, res, next) => {
   try {
 
+    //Validación del token
     if(!req.headers.authorization){
         handleHttpError(res, "NEED_SESSION", 401);
         return
@@ -29,7 +37,7 @@ const userSession = async (req, res, next) => {
     }
     
     next()
-    
+
   } catch (error) {
     console.log(error)
     handleHttpError(res, "NOT_SESSION", 401);
