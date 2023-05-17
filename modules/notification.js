@@ -5,7 +5,7 @@ const notification = sequelize.define(
     "notification", 
     {
         email: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(40),
             allowNull: false,
             references: {
                 model: 'users',
@@ -13,7 +13,7 @@ const notification = sequelize.define(
             },
         },
         email_addressee: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(40),
             allowNull: false,
             references: {
                 model: 'users',
@@ -21,13 +21,13 @@ const notification = sequelize.define(
             },
         },
         title: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(25),
         },
         body: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING(100)
         },
         category: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(40),
             validate: {
                 isIn: [[
                     "Normal", 

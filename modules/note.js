@@ -5,7 +5,7 @@ const note = sequelize.define(
     "note",
     {
         email: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(40),
             allowNull: false,
             references: {
                 model: 'users',
@@ -13,14 +13,14 @@ const note = sequelize.define(
             }
         },
         title: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(25),
         },
         body: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(100),
             allowNull: false,
         },
         category: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(15),
             validate: {
                 isIn: [[
                     "Deportivo", 

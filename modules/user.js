@@ -5,16 +5,16 @@ const user = sequelize.define(
     "user",
     {
         name: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(40),
             allowNull: false,
         },
         email: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(40),
             allowNull: false,
             primaryKey: true,
         },
         password: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(20),
             allowNull: false,
         },
         moderator: {
